@@ -1,0 +1,15 @@
+get_filename_component(EESV3_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+
+if(NOT TARGET EESV3::Trader)
+  include("${EESV3_CMAKE_DIR}/EESV3Targets.cmake")
+endif()
+
+#=================================================================================
+# NOTE: the following code is not necessary, can be deleted in a target based system
+
+@PACKAGE_INIT@
+
+set_and_check(EESV3_INCLUDE_DIR "@PACKAGE_EESV3_INCLUDE_INSTALL_DIR@")
+set_and_check(EESV3_LIBRARIES_DIR "@PACKAGE_EESV3_LIB_INSTALL_DIR@")
+
+check_required_components(EESV3)
